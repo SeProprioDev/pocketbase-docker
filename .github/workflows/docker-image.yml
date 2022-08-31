@@ -15,7 +15,7 @@ jobs:
       with:
         registry: rg.fr-par.scw.cloud/sepropriodev
         username: nologin
-        password: $DOCKER_PASSWORD
+        password: ${{ secrets.DOCKER_PASSWORD }}
       
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag rg.fr-par.scw.cloud/sepropriodev/pocketbase:${GITHUB_REF##*/}
