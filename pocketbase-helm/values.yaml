@@ -12,6 +12,7 @@ image:
 
 persistence:
   storage: 2Gi
+  storageClass: ""
 
 nameOverride: ""
 fullnameOverride: pocketbase

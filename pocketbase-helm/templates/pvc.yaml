@@ -3,6 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ include "pocketbase-helm.fullname" . }}-pvc
 spec:
+  {{if .Values.persistence.storageClass}}
+  storageClassName: {{ .Values.persistence.storageClass }}
+  {{end}}
   accessModes:
     - ReadWriteOnce
   resources:
