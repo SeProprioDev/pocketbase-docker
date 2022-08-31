@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pocketbase
+  namespace: pocketbase
+spec:
+  selector:
+    matchLabels:
+      app: pocketbase
+  template:
+    metadata:
+      labels:
+        app: pocketbase
+    spec:
+      containers:
+      - name: pocketbase
+        image: rg.fr-par.scw.cloud/lorenzoscebba-public/pocketbase:0.5.1
+        resources:
+          limits:
+            cpu: 400m
+            memory: 200Mi
+        ports:
+        - containerPort: 8090
+        volumeMounts:
+        - mountPath: "/pocketbase/pb_data"
+          name: pocketbase
+      volumes:
+        - name: pocketbase
+          persistentVolumeClaim:
+            claimName: pocketbase-pvc
+    status:
