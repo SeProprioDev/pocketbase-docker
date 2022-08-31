@@ -1,0 +1,20 @@
+name: Docker Image CI
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Package chart
+      run: helm package pocketbase-helm
+      
+    - name: Login to the registry
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | helm registry login rg.fr-par.scw.cloud/sepropriodev -u nologin --password-stdin
+      
+    - name: Push the Docker image
+      run: helm push $(ls | grep pocketbase-helm-) oci://rg.fr-par.scw.cloud/sepropriodev
