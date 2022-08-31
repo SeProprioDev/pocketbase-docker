@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Docker Login
+      uses: docker/login-action@v2.0.0
+      with:
+        registry: rg.fr-par.scw.cloud/sepropriodev
+        username: nologin
+        password: $DOCKER_PASSWORD
+      
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag rg.fr-par.scw.cloud/sepropriodev/pocketbase:${GITHUB_REF##*/}
+      
+    - name: Push the Docker image
+      run: docker push rg.fr-par.scw.cloud/sepropriodev/pocketbase:${GITHUB_REF##*/}
