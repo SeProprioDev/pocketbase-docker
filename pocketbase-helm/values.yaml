@@ -1,49 +1,58 @@
-# Default values for pocketbase-helm.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+## @section PocketBase configuration
+##
 
+## @param replicaCount How many replicas of pocketbase should be deployed, it is ignored if autoscaling is enabled
+## @param nameOverride String to partially override the deployment name (will maintain the release name)
+## @param fullnameOverride String to fully override the deployment name
+##
 replicaCount: 1
+nameOverride: ""
+fullnameOverride: pocketbase
 
+
+## @param image.repository The repository (and image name) where the pocketbase docker image is stored
+## @param image.pullPolicy Deployment pull policy
+## @param image.tag Overrides the image tag whose default is the chart appVersion
+##
 image:
   repository: rg.fr-par.scw.cloud/sepropriodev/pocketbase
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+## @param persistence.storage How much storage space should be reserved for PocketBase
+## @param persistence.storageClass The PV storage class (a storageClass with Retain policy is recommended)
+##
 persistence:
   storage: 2Gi
   storageClass: ""
 
-nameOverride: ""
-fullnameOverride: pocketbase
-
-podAnnotations: {}
-
+## @param service.type The service type exposing the PocketBase pods
+## @param service.port The port on which PocketBase is exposed
+##
 service:
   type: ClusterIP
   port: 8090
 
+## @param resources The resources associated with the deployment
 resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
 
+## @param autoscaling.enabled Whether to enable autoscaling
+## @param autoscaling.minReplicas number of min replicas
+## @param autoscaling.maxReplicas number of max replicas
+## @param autoscaling.targetCPUUtilizationPercentage targetCPUUtilizationPercentage
+## @param autoscaling.targetMemoryUtilizationPercentage targetMemoryUtilizationPercentage
 autoscaling:
   enabled: false
   minReplicas: 1
-  maxReplicas: 100
+  maxReplicas: 10
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
 
+## @param podAnnotations Extra annotations to attach to the pods
+podAnnotations: {}
+
+## @param nodeSelector Node selector labels
 nodeSelector: {}
 
-tolerations: []
-
+## @param affinity The pod affinities
 affinity: {}
