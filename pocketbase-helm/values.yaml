@@ -47,12 +47,3 @@ autoscaling:
   maxReplicas: 10
   targetCPUUtilizationPercentage: 80
   targetMemoryUtilizationPercentage: 80
-
-## @param podAnnotations Extra annotations to attach to the pods
-podAnnotations: {}
-
-## @param nodeSelector Node selector labels
-nodeSelector: {}
-
-## @param affinity The pod affinities
-affinity: {}

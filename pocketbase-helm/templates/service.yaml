@@ -2,8 +2,6 @@
 kind: Service
 metadata:
   name: {{ include "pocketbase-helm.fullname" . }}
-  labels:
-    {{- include "pocketbase-helm.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -11,5 +9,3 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-  selector:
-    {{- include "pocketbase-helm.selectorLabels" . | nindent 4 }}

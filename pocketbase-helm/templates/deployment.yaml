@@ -2,23 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "pocketbase-helm.fullname" . }}
-  labels:
-    {{- include "pocketbase-helm.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "pocketbase-helm.selectorLabels" . | nindent 6 }}
+      app: {{ include "pocketbase-helm.fullname" . }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
-      annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       labels:
-        {{- include "pocketbase-helm.selectorLabels" . | nindent 8 }}
+        app: {{ include "pocketbase-helm.fullname" . }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
@@ -30,15 +24,10 @@ spec:
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /pocketbase/pb_data
+              name: {{ include "pocketbase-helm.fullname" . }}-pv
       volumes:
         - name: {{ include "pocketbase-helm.fullname" . }}-pv
           persistentVolumeClaim:
             claimName: {{ include "pocketbase-helm.fullname" . }}-pvc
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
