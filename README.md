@@ -44,8 +44,5 @@ You can install pocketbase on K8S by running the command:
 | `autoscaling.maxReplicas`                       | number of max replicas                                                                      | `10`                                          |
 | `autoscaling.targetCPUUtilizationPercentage`    | targetCPUUtilizationPercentage                                                              | `80`                                          |
 | `autoscaling.targetMemoryUtilizationPercentage` | targetMemoryUtilizationPercentage                                                           | `80`                                          |
-| `podAnnotations`                                | Extra annotations to attach to the pods                                                     | `{}`                                          |
-| `nodeSelector`                                  | Node selector labels                                                                        | `{}`                                          |
-| `affinity`                                      | The pod affinities                                                                          | `{}`                                          |
 
 
