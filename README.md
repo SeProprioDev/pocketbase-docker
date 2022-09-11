@@ -20,6 +20,7 @@ You can install pocketbase on K8S by running the command:
 
 | PocketBase Version | Helm Version |
 |--------------------|--------------|
+| v0.7.2             | 0.4.2        |
 | v0.7.1             | 0.4.1        |
 | v0.7.0             | 0.4.0        |
 | v0.6.0             | 0.3.1        |
