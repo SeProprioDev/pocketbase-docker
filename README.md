@@ -1,20 +1,10 @@
 # pocketbase-docker
 
-## Release
-
-To release a new version:
-
-- Change the PocketBase version in the Dockerfile
-- Change the PocketBase version in the pocketbase-helm/Chart.yaml and the Chart version
-- Update the README.md
-- If needed, run `readme-generator -v .\pocketbase-helm\values.yaml -r .\README.md` (https://github.com/bitnami-labs/readme-generator-for-helm)
-- Tag the commit as vX.X.X following the PocketBase version
-
 ## Installation
 
 You can install pocketbase on K8S by running the command:
 
-`helm upgrade pocketbase oci://rg.fr-par.scw.cloud/sepropriodev/pocketbase-helm --version 0.4.0 --install`
+`helm upgrade pocketbase oci://rg.fr-par.scw.cloud/sepropriodev/pocketbase-helm --version 0.4.2 --install`
 
 ## Quick version reference
 
@@ -25,6 +15,34 @@ You can install pocketbase on K8S by running the command:
 | v0.7.0             | 0.4.0        |
 | v0.6.0             | 0.3.1        |
 
+## Changelog
+
+<details>
+<summary>Spoiler</summary>
+
+### v0.4.2
+
+Upgraded to PocketBase v0.7.2
+
+### v0.4.1
+
+Upgraded to PocketBase v0.7.1
+
+### v0.4.0
+
+Upgraded to PocketBase v0.7.0
+
+### v0.3.1
+
+Upgraded to PocketBase v0.6.0
+</details>
+
+## TODO
+
+- [ ] Support http / https flags
+- [ ] Support PB_ENCRYPTION_KEY
+- [ ] Create an admin account on startup (attached to helm notes)
+ 
 ## Parameters
 
 ### PocketBase configuration
