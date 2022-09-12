@@ -18,8 +18,11 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if eq (include "pocketbase-helm-hasArgs" .) "true" }}
-          args: ["test"]
+          {{- if or .Values.flags.encryptionEnv }}
+          args: ["--encryptionEnv=PB_ENCRYPTION_KEY"]
+          env:
+            - name: PB_ENCRYPTION_KEY
+              value: {{ .Values.flags.encryptionEnv | quote }}
           {{- end }}
           ports:
             - name: http

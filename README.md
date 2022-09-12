@@ -39,7 +39,7 @@ Upgraded to PocketBase v0.6.0
 
 ## TODO
 
-- [ ] Support http / https flags
+- ~~[ ] Support http / https flags~~ (won't do, pocketbase should be accessible only internally within the K8s)
 - [ ] Support PB_ENCRYPTION_KEY
 - [ ] Create an admin account on startup (attached to helm notes)
  

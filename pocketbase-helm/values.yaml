@@ -10,8 +10,7 @@ nameOverride: ""
 fullnameOverride: pocketbase
 
 flags:
-  http: "test.com:80"
-  https: "test.com:443"
+  encryptionEnv: "m8nDHhJQI0lhjdySrSRswhKnAOBOkXAd"
 
 
 ## @param image.repository The repository (and image name) where the pocketbase docker image is stored
