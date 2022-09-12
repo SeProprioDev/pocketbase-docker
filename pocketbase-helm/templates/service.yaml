@@ -1,8 +1,10 @@
-  apiVersion: v1
+apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "pocketbase-helm.fullname" . }}
 spec:
+  selector:
+    app: {{ include "pocketbase-helm.fullname" . }}
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}

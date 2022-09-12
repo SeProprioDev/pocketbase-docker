@@ -10,7 +10,7 @@ nameOverride: ""
 fullnameOverride: pocketbase
 
 flags:
-  encryptionEnv: "m8nDHhJQI0lhjdySrSRswhKnAOBOkXAd"
+  encryptionEnv: ""
 
 
 ## @param image.repository The repository (and image name) where the pocketbase docker image is stored
