@@ -22,7 +22,7 @@ You can install pocketbase on K8S by running the command:
 
 ### v0.4.2
 
-Upgraded to PocketBase v0.7.2
+Upgraded to PocketBase v0.7.2, added support for PB_ENCRYPTION_KEY
 
 ### v0.4.1
 
