@@ -9,6 +9,10 @@ replicaCount: 1
 nameOverride: ""
 fullnameOverride: pocketbase
 
+flags:
+  http: "test.com:80"
+  https: "test.com:443"
+
 
 ## @param image.repository The repository (and image name) where the pocketbase docker image is stored
 ## @param image.pullPolicy Deployment pull policy

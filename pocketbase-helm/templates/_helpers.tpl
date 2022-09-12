@@ -15,3 +15,11 @@ If release name contains chart name it will be used as a full name.
 {{- end }}
 {{- end }}
 {{- end }}
+
+{{- define "pocketbase-helm-hasArgs" -}}
+{{- if or .Values.flags.http .Values.flags.https -}}
+true
+{{- else -}}
+false
+{{- end -}}
+{{- end -}}

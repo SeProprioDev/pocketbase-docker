@@ -18,6 +18,9 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if eq (include "pocketbase-helm-hasArgs" .) "true" }}
+          args: ["test"]
+          {{- end }}
           ports:
             - name: http
               containerPort: 8090
