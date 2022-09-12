@@ -18,6 +18,13 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.flags.encryptionEnv }}
+          command: ["/pocketbase/pocketbase"]
+          args: ["serve", "--encryptionEnv=PB_ENCRYPTION_KEY"]
+          env:
+            - name: PB_ENCRYPTION_KEY
+              value: {{ .Values.flags.encryptionEnv | quote }}
+          {{- end }}
           ports:
             - name: http
               containerPort: 8090

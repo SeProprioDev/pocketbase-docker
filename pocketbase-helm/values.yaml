@@ -9,6 +9,11 @@ replicaCount: 1
 nameOverride: ""
 fullnameOverride: pocketbase
 
+## @param flags.encryptionEnv The PB_ENCRYPTION_KEY 32 characters string, see https://pocketbase.io/docs/going-to-production/#:~:text=enable%20settings%20encryption for more infos
+##
+flags:
+  encryptionEnv: ""
+
 
 ## @param image.repository The repository (and image name) where the pocketbase docker image is stored
 ## @param image.pullPolicy Deployment pull policy
