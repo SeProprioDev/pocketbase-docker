@@ -1,5 +1,7 @@
 # pocketbase-docker
 
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/pocketbase-docker)](https://artifacthub.io/packages/search?repo=pocketbase-docker)
+
 ## Installation
 
 You can install pocketbase on K8S by running the command:
