@@ -4,12 +4,13 @@
 
 You can install pocketbase on K8S by running the command:
 
-`helm upgrade pocketbase oci://rg.fr-par.scw.cloud/sepropriodev/pocketbase-helm --version 0.4.2 --install`
+`helm upgrade pocketbase oci://rg.fr-par.scw.cloud/sepropriodev/pocketbase-helm --version 0.4.3 --install`
 
 ## Quick version reference
 
 | PocketBase Version | Helm Version |
 |--------------------|--------------|
+| v0.7.4             | 0.4.3        |
 | v0.7.2             | 0.4.2        |
 | v0.7.1             | 0.4.1        |
 | v0.7.0             | 0.4.0        |
@@ -19,6 +20,10 @@ You can install pocketbase on K8S by running the command:
 
 <details>
 <summary>Spoiler</summary>
+
+### v0.4.3
+
+Upgraded to PocketBase v0.7.4
 
 ### v0.4.2
 
