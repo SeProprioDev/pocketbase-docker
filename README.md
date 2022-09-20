@@ -4,13 +4,13 @@
 
 ## Installation
 
-See [here](https://artifacthub.io/packages/helm/pocketbase-docker/pocketbase-helm) for more informations
+See [here](https://artifacthub.io/packages/helm/pocketbase-docker/pocketbase-helm) for more information
 
 ## Quick version reference
 
 | PocketBase Version | Helm Version |
 |--------------------|--------------|
-| v0.7.4             | 0.4.3        |
+| v0.7.4             | 0.4.4        |
 | v0.7.2             | 0.4.2        |
 | v0.7.1             | 0.4.1        |
 | v0.7.0             | 0.4.0        |
@@ -20,6 +20,12 @@ See [here](https://artifacthub.io/packages/helm/pocketbase-docker/pocketbase-hel
 
 <details>
 <summary>Spoiler</summary>
+
+### v0.4.4
+
+Fixed service port
+Fixed url on which pocketbase listens (it is now 0.0.0.0)
+Added connection test
 
 ### v0.4.3
 
@@ -45,7 +51,5 @@ Upgraded to PocketBase v0.6.0
 ## TODO
 
 - [X] Support PB_ENCRYPTION_KEY
+- [ ] Support ingress for pocketbase
 - [ ] Create an admin account on startup (attached to helm notes)
-
-
-- ~~Support http / https flags~~ (won't do, pocketbase should be accessible only internally within the K8s)

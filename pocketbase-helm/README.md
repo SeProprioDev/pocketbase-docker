@@ -6,6 +6,12 @@ You can install pocketbase on K8S by running the command:
 
 `helm upgrade pocketbase oci://rg.fr-par.scw.cloud/sepropriodev/pocketbase-helm --version 0.4.3 --install`
 
+## Run tests
+
+You can run pocketbase tests by running the command:
+
+`helm test pocketbase`
+
 ## Parameters
 
 ### PocketBase configuration

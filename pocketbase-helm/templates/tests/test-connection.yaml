@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "pocketbase-helm.fullname" . }}-test-connection"
+  labels:
+    app.test: {{ include "pocketbase-helm.fullname" . }}
+  annotations:
+    "helm.sh/hook": test
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "pocketbase-helm.fullname" . }}:{{ .Values.service.port }}/api/users/auth-methods', "-O-"]
+  restartPolicy: Never

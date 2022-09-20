@@ -18,9 +18,9 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if .Values.flags.encryptionEnv }}
           command: ["/pocketbase/pocketbase"]
-          args: ["serve", "--encryptionEnv=PB_ENCRYPTION_KEY"]
+          args: ["serve", "--http=0.0.0.0:8090", "--encryptionEnv=PB_ENCRYPTION_KEY"]
+          {{- if .Values.flags.encryptionEnv }}
           env:
             - name: PB_ENCRYPTION_KEY
               value: {{ .Values.flags.encryptionEnv | quote }}
