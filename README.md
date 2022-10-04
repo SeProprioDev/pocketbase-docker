@@ -10,6 +10,7 @@ See [here](https://artifacthub.io/packages/helm/pocketbase-docker/pocketbase-hel
 
 | PocketBase Version | Helm Version |
 |--------------------|--------------|
+| v0.7.7             | 0.4.6        |
 | v0.7.5             | 0.4.5        |
 | v0.7.4             | 0.4.4        |
 | v0.7.2             | 0.4.2        |
