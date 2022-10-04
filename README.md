@@ -21,6 +21,10 @@ See [here](https://artifacthub.io/packages/helm/pocketbase-docker/pocketbase-hel
 <details>
 <summary>Spoiler</summary>
 
+### v0.4.6
+
+Upgraded to PocketBase v0.7.7
+
 ### v0.4.5
 
 Upgraded to PocketBase v0.7.5
