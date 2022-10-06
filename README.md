@@ -10,7 +10,7 @@ See [here](https://artifacthub.io/packages/helm/pocketbase-docker/pocketbase-hel
 
 | PocketBase Version | Helm Version |
 |--------------------|--------------|
-| v0.7.9             | 0.4.7        |
+| v0.7.9             | 0.4.8        |
 | v0.7.7             | 0.4.6        |
 | v0.7.5             | 0.4.5        |
 | v0.7.4             | 0.4.4        |
@@ -22,6 +22,10 @@ See [here](https://artifacthub.io/packages/helm/pocketbase-docker/pocketbase-hel
 
 <details>
 <summary>Spoiler</summary>
+
+### v0.4.8
+
+Added possibility to create ingress for PocketBase
 
 ### v0.4.7
 
@@ -62,5 +66,5 @@ Upgraded to PocketBase v0.7.0
 ## TODO
 
 - [X] Support PB_ENCRYPTION_KEY
-- [ ] Support ingress for pocketbase
+- [X] Support ingress for pocketbase
 - [ ] Create an admin account on startup (attached to helm notes)

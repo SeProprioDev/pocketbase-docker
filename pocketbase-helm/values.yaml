@@ -31,12 +31,13 @@ persistence:
   storage: 2Gi
   storageClass: ""
 
-## @param service.type The service type exposing the PocketBase pods
-## @param service.port The port on which PocketBase is exposed
-##
-service:
-  type: ClusterIP
-  port: 8090
+## @param ingress.enabled Whether to enable the ingress
+## @param ingress.clusterIssuer The Cert Manager cluster issuer (https://cert-manager.io/docs/configuration/acme/http01/)
+## @param ingress.dns The dns name which will expose PocketBase
+ingress:
+  enabled: false
+  clusterIssuer: letsencrypt-prod
+  dns: ""
 
 ## @param resources The resources associated with the deployment
 resources: {}

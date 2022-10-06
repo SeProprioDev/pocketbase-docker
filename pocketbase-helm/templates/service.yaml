@@ -5,9 +5,9 @@ metadata:
 spec:
   selector:
     app: {{ include "pocketbase-helm.fullname" . }}
-  type: {{ .Values.service.type }}
+  type: ClusterIP
   ports:
-    - port: {{ .Values.service.port }}
+    - port: 8090
       targetPort: 8090
       protocol: TCP
       name: pocketbase-port

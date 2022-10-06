@@ -12,5 +12,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "pocketbase-helm.fullname" . }}:{{ .Values.service.port }}/api/users/auth-methods', "-O-"]
+      args: ['{{ include "pocketbase-helm.fullname" . }}:8090/api/users/auth-methods', "-O-"]
   restartPolicy: Never

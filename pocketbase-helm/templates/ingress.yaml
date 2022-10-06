@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: {{ .Values.ingress.clusterIssuer }}
+  name: {{ include "pocketbase-helm.fullname" . }}
+spec:
+  rules:
+    - host: {{ required "When the ingress is enabled, a valid dns is required" .Values.ingress.dns }}
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: {{ include "pocketbase-helm.fullname" . }}
+                port:
+                  number: 8090
+  tls:
+    - hosts:
+        - {{ required "When the ingress is enabled, a valid dns is required" .Values.ingress.dns }}
+      secretName: {{ include "pocketbase-helm.fullname" . }}-cert
