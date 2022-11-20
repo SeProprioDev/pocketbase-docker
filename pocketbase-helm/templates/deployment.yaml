@@ -17,7 +17,17 @@ spec:
       initContainers:
         - name: {{ .Chart.Name }}-upgrader
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["/pocketbase/pocketbase"]
+          args: ["upgrade", "--encryptionEnv=PB_ENCRYPTION_KEY"]
+          {{- if .Values.flags.encryptionEnv }}
+          env:
+            - name: PB_ENCRYPTION_KEY
+              value: {{ .Values.flags.encryptionEnv | quote }}
+          {{- end }}
+          volumeMounts:
+            - mountPath: /pocketbase/pb_data
+              name: {{ include "pocketbase-helm.fullname" . }}-pv
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
