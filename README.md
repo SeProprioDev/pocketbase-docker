@@ -10,19 +10,19 @@ See [here](https://artifacthub.io/packages/helm/pocketbase-docker/pocketbase-hel
 
 | PocketBase Version | Helm Version |
 |--------------------|--------------|
+| v0.8.0             | 0.5.0        |
 | v0.7.10            | 0.4.9        |
-| v0.7.9             | 0.4.8        |
-| v0.7.7             | 0.4.6        |
-| v0.7.5             | 0.4.5        |
-| v0.7.4             | 0.4.4        |
-| v0.7.2             | 0.4.2        |
-| v0.7.1             | 0.4.1        |
-| v0.7.0             | 0.4.0        |
 
 ## Changelog
 
 <details>
 <summary>Spoiler</summary>
+
+### v0.5.0
+
+Upgraded to PocketBase v0.8.0, see changelog [here](https://github.com/pocketbase/pocketbase/releases/tag/v0.8.0)
+
+The upgrade procedure is managed by the helm chart, so relax, **backup** and upgrade!
 
 ### v0.4.9
 
@@ -67,9 +67,3 @@ Upgraded to PocketBase v0.7.1
 Upgraded to PocketBase v0.7.0
 
 </details>
-
-## TODO
-
-- [X] Support PB_ENCRYPTION_KEY
-- [X] Support ingress for pocketbase
-- [ ] Create an admin account on startup (attached to helm notes)

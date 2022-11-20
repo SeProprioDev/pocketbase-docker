@@ -38,3 +38,8 @@ You can run pocketbase tests by running the command:
 | `autoscaling.targetMemoryUtilizationPercentage` | targetMemoryUtilizationPercentage                                                                                                                     | `80`                                          |
 
 
+## Upgrading
+
+### From v.0.7.X to v.0.8.X
+
+The upgrade is managed by the helm chart, 
