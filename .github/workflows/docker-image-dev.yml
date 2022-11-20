@@ -1,0 +1,23 @@
+name: Docker Image Dev CI
+
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Docker Login
+      uses: docker/login-action@v2.0.0
+      with:
+        registry: rg.fr-par.scw.cloud/sepropriodev
+        username: nologin
+        password: ${{ secrets.DOCKER_PASSWORD }}
+      
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag rg.fr-par.scw.cloud/sepropriodev/pocketbase-unstable:${GITHUB_SHA}
+      
+    - name: Push the Docker image
+      run: docker push rg.fr-par.scw.cloud/sepropriodev/pocketbase-unstable:${GITHUB_SHA}
