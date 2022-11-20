@@ -1,3 +1,4 @@
+{{ if .Values.ingress.enabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -20,3 +21,4 @@ spec:
     - hosts:
         - {{ required "When the ingress is enabled, a valid dns is required" .Values.ingress.dns }}
       secretName: {{ include "pocketbase-helm.fullname" . }}-cert
+{{ end }}
