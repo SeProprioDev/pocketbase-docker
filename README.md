@@ -20,7 +20,8 @@ See [here](https://artifacthub.io/packages/helm/pocketbase-docker/pocketbase-hel
 
 ### v0.5.0
 
-Upgraded to PocketBase v0.8.0, see changelog [here](https://github.com/pocketbase/pocketbase/releases/tag/v0.8.0)
+- Fixed the ingress.yaml
+- Upgraded to PocketBase v0.8.0, see changelog [here](https://github.com/pocketbase/pocketbase/releases/tag/v0.8.0)
 
 The upgrade procedure is managed by the helm chart, so relax, **backup** and upgrade!
 
