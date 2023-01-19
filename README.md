@@ -10,6 +10,7 @@ See [here](https://artifacthub.io/packages/helm/pocketbase-docker/pocketbase-hel
 
 | PocketBase Version | Helm Version |
 |--------------------|--------------|
+| v0.11.3            | 0.8.0        |
 | v0.10.4            | 0.7.0        |
 | v0.9.0             | 0.6.0        |
 | v0.8.0             | 0.5.0        |
@@ -18,6 +19,12 @@ See [here](https://artifacthub.io/packages/helm/pocketbase-docker/pocketbase-hel
 
 <details>
 <summary>Spoiler</summary>
+
+### v0.8.0
+
+- Upgraded to pocketbase v0.11.3
+
+**Make sure to have a backup of your pb_data and to read the notes below before updating (there is small breaking change in case you are filtering multi-relation fields in your client-side code).**
 
 ### v0.7.0
 
